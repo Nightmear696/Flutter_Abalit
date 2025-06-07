@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_button.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_textfield.dart';
+import 'package:flutter_marti_lopez_entrga_final_abalit/pages/home_page.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
@@ -10,9 +11,13 @@ class RegisterPage extends StatelessWidget {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  void registerUser() {
-    // Aquí podrías agregar la lógica para registrar al usuario
-  }
+  void registerUser(BuildContext context) {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => HomePage()),
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +78,7 @@ class RegisterPage extends StatelessWidget {
 
               SizedBox(height: 25),
 
-              MyButton(onTap: registerUser),
+              MyButton(onTap: () => registerUser(context)),
 
               SizedBox(height: 10),
 

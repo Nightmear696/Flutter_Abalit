@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_button.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_textfield.dart';
+import 'package:flutter_marti_lopez_entrga_final_abalit/pages/home_page.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/register_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -9,8 +10,11 @@ class LoginPage extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void signUserIn() {
-  }
+  void signUserIn(BuildContext context) {
+  Navigator.pushReplacement(context,
+    MaterialPageRoute(builder: (context) => HomePage()),
+  );
+}
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +68,7 @@ class LoginPage extends StatelessWidget {
 
               SizedBox(height: 25),
 
-              MyButton(onTap: signUserIn),
+              MyButton(onTap: () => signUserIn(context)),
 
               SizedBox(height: 10,),
 
