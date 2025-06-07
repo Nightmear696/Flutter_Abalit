@@ -74,7 +74,7 @@ class LoginPage extends StatelessWidget {
                   children: [
                   Text("No tienes cuenta?"),
                   const SizedBox(width: 4,),
-                  Text("Registrate",style: TextStyle(color: Colors.blue[800],fontWeight: FontWeight.bold),)
+                  Text("Registrate",style: TextStyle(color: Colors.blue[900],fontWeight: FontWeight.bold),)
                 ],),
               )
             ],
