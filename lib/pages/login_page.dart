@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_button.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_textfield.dart';
+import 'package:flutter_marti_lopez_entrga_final_abalit/pages/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -68,15 +69,31 @@ class LoginPage extends StatelessWidget {
               SizedBox(height: 10,),
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                  Text("No tienes cuenta?"),
-                  const SizedBox(width: 4,),
-                  Text("Registrate",style: TextStyle(color: Colors.blue[900],fontWeight: FontWeight.bold),)
-                ],),
-              )
+  padding: const EdgeInsets.symmetric(horizontal: 25),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.end,
+    children: [
+      Text("¿No tienes cuenta?"),
+      const SizedBox(width: 4),
+      TextButton(
+        onPressed: () {
+          // Navegación a la pantalla de registro
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => RegisterPage()),
+          );
+        },
+        child: Text(
+          "Regístrate",
+          style: TextStyle(
+            color: Colors.blue[900],
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    ],
+  ),
+)
             ],
           ),
         ),
