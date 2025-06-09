@@ -13,16 +13,11 @@ class LoginPage extends StatelessWidget {
   final passwordController = TextEditingController();
 
   void signUserIn(BuildContext context) {
-    try {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomePage(shop: Shop())),
       );
-      print("Sin errores");
 
-    } catch (e) {
-      print("Error al iniciar");
-    }
   }
 
   @override

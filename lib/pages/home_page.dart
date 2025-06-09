@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_drawer.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/models/product.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/models/shop.dart';
+import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_product_tile.dart'; // 🔹 Importa el nuevo widget
 
 class HomePage extends StatefulWidget {
   final Shop shop;
@@ -42,22 +43,10 @@ class _HomePageState extends State<HomePage> {
           ? ListView.builder(
               itemCount: products.length,
               itemBuilder: (context, index) {
-                Product product = products[index];
-                return Card(
-                  margin: const EdgeInsets.all(10),
-                  child: ListTile(
-                    leading: Image.network(
-                      product.imagePath,
-                      errorBuilder: (context, error, stackTrace) =>
-                          const Icon(Icons.image_not_supported), // 🔹 Maneja errores en la carga de imágenes
-                    ),
-                    title: Text(product.name, style: const TextStyle(fontWeight: FontWeight.bold)),
-                    subtitle: Text("\$${product.price.toString()}"),
-                  ),
-                );
+                return MyProductTile(product: products[index], shop: Shop(),); 
               },
             )
-          : const Center(child: CircularProgressIndicator()), // 🔹 Muestra un indicador de carga mientras se obtienen los productos
+          : const Center(child: CircularProgressIndicator()),
     );
   }
 }
