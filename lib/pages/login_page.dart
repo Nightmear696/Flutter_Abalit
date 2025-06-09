@@ -11,10 +11,11 @@ class LoginPage extends StatelessWidget {
   final passwordController = TextEditingController();
 
   void signUserIn(BuildContext context) {
-  Navigator.pushReplacement(context,
-    MaterialPageRoute(builder: (context) => HomePage()),
-  );
-}
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,34 +71,36 @@ class LoginPage extends StatelessWidget {
 
               MyButton(onTap: () => signUserIn(context)),
 
-              SizedBox(height: 10,),
+              SizedBox(height: 10),
 
               Padding(
-  padding: const EdgeInsets.symmetric(horizontal: 25),
-  child: Row(
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: [
-      Text("¿No tienes cuenta?"),
-      const SizedBox(width: 4),
-      TextButton(
-        onPressed: () {
-          // Navegación a la pantalla de registro
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => RegisterPage()),
-          );
-        },
-        child: Text(
-          "Regístrate",
-          style: TextStyle(
-            color: Colors.blue[900],
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    ],
-  ),
-)
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text("¿No tienes cuenta?"),
+                    const SizedBox(width: 4),
+                    TextButton(
+                      onPressed: () {
+                        // Navegación a la pantalla de registro
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RegisterPage(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "Regístrate",
+                        style: TextStyle(
+                          color: Colors.blue[900],
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
