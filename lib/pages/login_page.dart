@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_button.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_textfield.dart';
+import 'package:flutter_marti_lopez_entrga_final_abalit/models/shop.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/home_page.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/recover_page.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/register_page.dart';
@@ -12,10 +13,16 @@ class LoginPage extends StatelessWidget {
   final passwordController = TextEditingController();
 
   void signUserIn(BuildContext context) {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()),
-    );
+    try {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage(shop: Shop())),
+      );
+      print("Sin errores");
+
+    } catch (e) {
+      print("Error al iniciar");
+    }
   }
 
   @override
@@ -53,7 +60,6 @@ class LoginPage extends StatelessWidget {
                 icon: Icon(Icons.lock),
               ),
 
-
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Row(
@@ -61,7 +67,7 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Text(
                       "Has olvidado la contraseña?",
-                      style: TextStyle(color: Colors.grey,fontSize: 10),
+                      style: TextStyle(color: Colors.grey, fontSize: 10),
                     ),
                     TextButton(
                       onPressed: () {
@@ -77,7 +83,7 @@ class LoginPage extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.orange[800],
                           fontWeight: FontWeight.bold,
-                          fontSize: 12
+                          fontSize: 12,
                         ),
                       ),
                     ),
@@ -87,9 +93,7 @@ class LoginPage extends StatelessWidget {
 
               SizedBox(height: 150),
 
-              MyButton(
-                text: "Inicar Sesion",
-                onTap: () => signUserIn(context)),
+              MyButton(text: "Inicar Sesion", onTap: () => signUserIn(context)),
 
               SizedBox(height: 10),
 

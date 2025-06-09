@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_button.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_textfield.dart';
+import 'package:flutter_marti_lopez_entrga_final_abalit/models/shop.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/home_page.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -14,7 +15,7 @@ class RegisterPage extends StatelessWidget {
   void registerUser(BuildContext context) {
   Navigator.pushReplacement(
     context,
-    MaterialPageRoute(builder: (context) => HomePage()),
+    MaterialPageRoute(builder: (context) => HomePage(shop: Shop())),
   );
 }
 

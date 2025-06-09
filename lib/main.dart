@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_marti_lopez_entrga_final_abalit/models/shop.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/login_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Shop shop = Shop();
+  await shop.fetchProducts();
   runApp(const MainApp());
 }
 
@@ -10,6 +14,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -17,6 +22,7 @@ class MainApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: LoginPage(),
+        
       ),
     );
   }

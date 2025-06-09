@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_list_tile.dart';
+import 'package:flutter_marti_lopez_entrga_final_abalit/models/shop.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/cart_page.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/home_page.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/login_page.dart';
@@ -35,7 +36,7 @@ class MyDrawer extends StatelessWidget {
 
                        Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
+                        MaterialPageRoute(builder: (context) => HomePage(shop: Shop())),
                       );
 
                     },
