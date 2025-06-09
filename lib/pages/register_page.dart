@@ -78,7 +78,9 @@ class RegisterPage extends StatelessWidget {
 
               SizedBox(height: 25),
 
-              MyButton(onTap: () => registerUser(context)),
+              MyButton(
+                text:"Registrarse",
+                onTap: () => registerUser(context)),
 
               SizedBox(height: 10),
 
@@ -96,7 +98,7 @@ class RegisterPage extends StatelessWidget {
                       child: Text(
                         "Inicia sesión",
                         style: TextStyle(
-                          color: Colors.blue[900],
+                          color: Colors.orange[800],
                           fontWeight: FontWeight.bold,
                         ),
                       ),

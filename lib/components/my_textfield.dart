@@ -21,13 +21,13 @@ class MyTextfield extends StatelessWidget {
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.orange),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey.shade400),
           ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.orange),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.orange,width: 2),
           ),
-          fillColor: Colors.white,
+          fillColor: Colors.amber[50],
           filled: true,
           hintText: hintText,
           hintStyle: TextStyle(color: Colors.grey, fontFamily: "Onest"),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_button.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_textfield.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/home_page.dart';
+import 'package:flutter_marti_lopez_entrga_final_abalit/pages/recover_page.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/register_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -52,7 +53,6 @@ class LoginPage extends StatelessWidget {
                 icon: Icon(Icons.lock),
               ),
 
-              SizedBox(height: 10),
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -61,22 +61,42 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Text(
                       "Has olvidado la contraseña?",
-                      style: TextStyle(color: Colors.grey),
+                      style: TextStyle(color: Colors.grey,fontSize: 10),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RecoverPage(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "Recuperar",
+                        style: TextStyle(
+                          color: Colors.orange[800],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
 
-              SizedBox(height: 25),
+              SizedBox(height: 150),
 
-              MyButton(onTap: () => signUserIn(context)),
+              MyButton(
+                text: "Inicar Sesion",
+                onTap: () => signUserIn(context)),
 
               SizedBox(height: 10),
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("¿No tienes cuenta?"),
                     const SizedBox(width: 4),
@@ -93,7 +113,7 @@ class LoginPage extends StatelessWidget {
                       child: Text(
                         "Regístrate",
                         style: TextStyle(
-                          color: Colors.blue[900],
+                          color: Colors.orange[800],
                           fontWeight: FontWeight.bold,
                         ),
                       ),
