@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_drawer.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class CartPage extends StatelessWidget {
+  const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
