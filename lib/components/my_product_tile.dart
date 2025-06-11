@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/models/product.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/models/shop.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/pages/product_detail_page.dart';
+import 'package:provider/provider.dart';
 
 class MyProductTile extends StatefulWidget {
   final Product product;
@@ -10,16 +11,16 @@ class MyProductTile extends StatefulWidget {
   const MyProductTile({super.key, required this.product, required this.shop});
 
   @override
-  _MyProductTileState createState() => _MyProductTileState();
+  MyProductTileState createState() => MyProductTileState();
 }
 
-class _MyProductTileState extends State<MyProductTile> {
+class MyProductTileState extends State<MyProductTile> {
   void addToCart() {
-    widget.shop.addToCart(widget.product, 1); // 🔹 Agrega 1 unidad al carrito
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("${widget.product.name} agregado al carrito.")),
-    );
-  }
+  context.read<Shop>().addToCart(widget.product, 1);
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text("${widget.product.name} agregado al carrito.")),
+  );
+}
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +37,11 @@ class _MyProductTileState extends State<MyProductTile> {
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: Colors.orange[50], // 🔹 Fondo más limpio y estilizado
+          color: Colors.orange[50], 
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 🔹 Nombre y Precio en la parte superior
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -54,7 +54,7 @@ class _MyProductTileState extends State<MyProductTile> {
                   ),
                 ),
                 Text(
-                  "\$${widget.product.price.toString()}",
+                  "${widget.product.price.toString()}€",
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
@@ -66,7 +66,6 @@ class _MyProductTileState extends State<MyProductTile> {
 
             SizedBox(height: 10),
 
-            // 🔹 Imagen centrada
             Center(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
@@ -83,7 +82,6 @@ class _MyProductTileState extends State<MyProductTile> {
 
             SizedBox(height: 10),
 
-            // 🔹 Botón "Añadir al carrito"
             Center(
               child: GestureDetector(
                 onTap: addToCart,
@@ -93,7 +91,7 @@ class _MyProductTileState extends State<MyProductTile> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: Colors.black),
-                    color: Colors.transparent, // 🔹 Fondo transparente con borde negro
+                    color: Colors.transparent,
                   ),
                   child: const Center(
                     child: Text(

@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_marti_lopez_entrga_final_abalit/models/product.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/config/helpers/function_of_beauty_api.dart';
 
-class Shop {
+class Shop extends ChangeNotifier {
   late List<Product> productList;
   final Map<Product, int> _cart = {};
 
@@ -11,7 +12,7 @@ class Shop {
     fetchProducts();
   }
 
-  Map<Product,   int> get cart => _cart;
+  Map<Product, int> get cart => _cart;
 
   void addToCart(Product product, int quantity) {
     if (_cart.containsKey(product)) {
@@ -19,11 +20,17 @@ class Shop {
     } else {
       _cart[product] = quantity;
     }
+    notifyListeners();
   }
-
 
   void deleteFromCart(Product product) {
     _cart.remove(product);
+    notifyListeners();
+  }
+
+   void clearCart() {
+    _cart.clear();
+    notifyListeners();
   }
 
   Future<void> fetchProducts() async {

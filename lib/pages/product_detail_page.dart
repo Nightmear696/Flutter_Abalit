@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/models/product.dart';
+import 'package:flutter_marti_lopez_entrga_final_abalit/models/shop.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailPage extends StatefulWidget {
   final Product product;
@@ -7,10 +9,10 @@ class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage({super.key, required this.product});
 
   @override
-  _ProductDetailPageState createState() => _ProductDetailPageState();
+  ProductDetailPageState createState() => ProductDetailPageState();
 }
 
-class _ProductDetailPageState extends State<ProductDetailPage> {
+class ProductDetailPageState extends State<ProductDetailPage> {
   int quantity = 1;
 
   void increaseQuantity() {
@@ -26,14 +28,13 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   }
 
   void addToCart() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          "${widget.product.name} añadido al carrito (x$quantity).",
-        ),
-      ),
-    );
-  }
+  context.read<Shop>().addToCart(widget.product, quantity);
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text("${widget.product.name} añadido al carrito (x$quantity)."),
+    ),
+  );
+}
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +81,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "${widget.product.price.toString()}\€",
+                  "${widget.product.price.toString()}€",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.normal,

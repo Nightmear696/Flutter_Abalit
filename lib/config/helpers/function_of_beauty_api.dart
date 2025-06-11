@@ -83,10 +83,12 @@ class Category {
         "name": nameValues.reverse[name],
     };
 }
-
 enum Name {
+    // ignore: constant_identifier_names
     BODYCARE,
+    // ignore: constant_identifier_names
     HAIR_CARE,
+    // ignore: constant_identifier_names
     SKINCARE
 }
 

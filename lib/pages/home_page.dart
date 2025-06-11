@@ -10,10 +10,10 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.shop});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   List<Product> products = [];
 
   @override
@@ -23,9 +23,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> loadProducts() async {
-    await widget.shop.fetchProducts(); // 🔹 Espera a que los productos se carguen desde la API
+    await widget.shop.fetchProducts();
     setState(() {
-      products = widget.shop.productList; // 🔹 Actualiza la UI con los productos obtenidos
+      products = widget.shop.productList;
     });
   }
 
@@ -34,7 +34,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Image.asset("lib/images/function_app_logo.png", width: 75, height: 75),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Spacer(),
+            Image.asset("lib/images/function_app_logo_cut.png", width: 75, height: 75),
+            Spacer(),
+          ],
+        ),
         backgroundColor: Colors.orange[50],
       ),
       drawer: MyDrawer(),
