@@ -25,16 +25,26 @@ class CartPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          elevation: 0,
-          title: Center(
-            child: Image.asset(
-              "lib/images/function_app_logo_cut.png",
-              width: 75,
-              height: 75,
-            ),
-          ),
-          backgroundColor: Colors.orange[50],
-        ),
+  elevation: 0,
+  title: Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Spacer(),
+      Image.asset("lib/images/function_app_logo_cut.png", width: 75, height: 75),
+      Spacer(),
+    ],
+  ),
+  backgroundColor: Colors.orange[50],
+  actions: [
+    Padding(
+      padding: EdgeInsets.only(right: 8.0),
+      child: CircleAvatar(
+        backgroundImage: AssetImage("lib/images/user_avatar.png"),
+        radius: 20,
+      ),
+    ),
+  ],
+),
         drawer: MyDrawer(),
         backgroundColor: Colors.orange[50],
         body: Column(

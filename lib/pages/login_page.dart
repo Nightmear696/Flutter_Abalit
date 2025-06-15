@@ -101,7 +101,6 @@ class LoginPage extends StatelessWidget {
                     const SizedBox(width: 4),
                     TextButton(
                       onPressed: () {
-                        // Navegación a la pantalla de registro
                         Navigator.push(
                           context,
                           MaterialPageRoute(

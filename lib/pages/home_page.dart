@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_drawer.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/models/product.dart';
 import 'package:flutter_marti_lopez_entrga_final_abalit/models/shop.dart';
-import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_product_tile.dart'; // 🔹 Importa el nuevo widget
+import 'package:flutter_marti_lopez_entrga_final_abalit/components/my_product_tile.dart';
 
 class HomePage extends StatefulWidget {
   final Shop shop;
@@ -33,17 +33,33 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Spacer(),
-            Image.asset("lib/images/function_app_logo_cut.png", width: 75, height: 75),
-            Spacer(),
-          ],
-        ),
-        backgroundColor: Colors.orange[50],
+  elevation: 0,
+  title: Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Spacer(),
+      Image.asset("lib/images/function_app_logo_cut.png", width: 75, height: 75),
+      Spacer(),
+    ],
+  ),
+  backgroundColor: Colors.orange[50],
+  actions: [
+    IconButton(
+      icon: Icon(Icons.search),
+      onPressed: () {
+
+      },
+    ),
+    Padding(
+      padding: EdgeInsets.only(right: 8.0),
+      child: CircleAvatar(
+        backgroundImage: AssetImage("lib/images/user_avatar.png"),
+        radius: 20,
       ),
+    ),
+  ],
+),
+
       drawer: MyDrawer(),
       backgroundColor: Colors.orange[50],
       body: products.isNotEmpty

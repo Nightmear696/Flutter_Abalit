@@ -23,6 +23,8 @@ flutter:
   assets:
     - lib/images/function_app_logo.png
     - lib/images/function_app_logo_cut.png
+    - lib/images/user_avatar.png
+
   fonts:
     - family: Onest
       fonts:

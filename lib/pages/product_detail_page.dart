@@ -149,9 +149,9 @@ class ProductDetailPageState extends State<ProductDetailPage> {
                 height: 50,
                 margin: const EdgeInsets.symmetric(horizontal: 25),
                 decoration: BoxDecoration(
-                  color: Colors.transparent, // 🔹 Fondo transparente
+                  color: Colors.transparent,
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.black), // 🔹 Borde negro
+                  border: Border.all(color: Colors.black),
                 ),
                 child: const Center(
                   child: Text(
